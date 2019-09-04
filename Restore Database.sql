@@ -7,12 +7,7 @@ RESTORE FILELISTONLY FROM DISK = 'D:\Databases\Backups\MyDatabase.bak'
 GO
 
 -- Step 2
--- Then use values in LogicalName Column to move database to new location
-ALTER DATABASE MyDatabase SET SINGLE_USER WITH ROLLBACK IMMEDIATE
-GO
-
--- Step 3
--- Restore database
+-- Restore database using values in LogicalName Column to move database to new location
 RESTORE DATABASE MyDatabase
     FROM DISK = 'D:\Databases\Backups\MyDatabase.bak'
       WITH MOVE 'MyDatabase' TO 'D:\Databases\Data\MyDatabase.mdf',
